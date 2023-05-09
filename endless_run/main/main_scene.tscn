@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://titles/background.png" type="Texture" id=2]
+[ext_resource path="res://main/main_scene.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 484.5, 169.5 )
+
+[sub_resource type="CubeMesh" id=1]
+
+[node name="main_scene" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+light_mask = 1023
+position = Vector2( 284, 300 )
+
+[node name="Background" type="Sprite" parent="player"]
+show_behind_parent = true
+position = Vector2( 95.5, 46 )
+scale = Vector2( 7.58235, 5.0339 )
+texture = ExtResource( 2 )
+
+[node name="death" type="StaticBody2D" parent="."]
+position = Vector2( -7, 809 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
+position = Vector2( 428, 820 )
+scale = Vector2( 10000, 1 )
+shape = SubResource( 2 )
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2( -60, 3 )
+
+[node name="test_plat" type="MeshInstance2D" parent="floor"]
+position = Vector2( 212, 392 )
+scale = Vector2( 183.5, 22 )
+mesh = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor"]
+position = Vector2( -6, 3 )
+polygon = PoolVector2Array( 31, 369, 37, 77, 58, 77, 57, 367, 101, 365, 212, 365, 318, 368, 396, 369, 398, 417, 29, 415 )
