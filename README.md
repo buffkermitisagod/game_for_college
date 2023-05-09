@@ -5,5 +5,4 @@ a simple game im making for an assingment
 the code for the game i located in 'endless_run' with all the folders and scripts in it
 
 # run
-you can run it on windows with the 'runner.exe' file or linux with the 'runner.bin' file   
-or you can compile it from source code by opening the project in godot and compiling it then.
+you must download the .tar.gz file and decompress it, then click on the .exe or .x86_64 file for your platform :)
